@@ -20,16 +20,17 @@ public class AutenticacionBiometrica implements Autenticable, Auditable {
     public boolean autenticar(String usuario, String credencial) {
         String nivelConfianza = "BAJO";
 
-        if (this.huellaDactilar.equals(credencial)) {
+        if (huellaDactilar.equals(credencial)) {
             nivelConfianza = "ALTA";
-        } else if (this.reconocimientoFacial.equals(credencial)) {
+            System.out.println("✓ Huella verificada - Confianza: " + nivelConfianza);
+        } else if (reconocimientoFacial.equals(credencial)) {
             nivelConfianza = "MEDIA";
+            System.out.println("✓ Reconocimiento facial verificada - Confianza: " + nivelConfianza);
         } else {
             registrarIntento(usuario + " (Biométrica/Baja)", false);
             return false;
         }
 
-        System.out.println("✓ Huella verificada - Confianza: " + nivelConfianza);
         System.out.println("✓ Autenticación biométrica exitosa");
         registrarIntento(usuario + " (Biométrica/" + nivelConfianza + ")", true);
         return true;
