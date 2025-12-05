@@ -1,8 +1,6 @@
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("=== SISTEMA DE AUTENTICACIÓN ===\n");
         System.out.println("--- Autenticación Básica ---");
         AutenticacionBasica basica = new AutenticacionBasica("admin", "admin123");
@@ -46,7 +44,7 @@ public class Main {
 
 
         System.out.println("--- Autenticación Biométrica ---");
-        AutenticacionBiometrica biometrica = new AutenticacionBiometrica("maria.lopez", "huella123", "cara456");
+        AutenticacionBiometrica biometrica = new AutenticacionBiometrica("maria.lopez", " huella123", "cara456");
 
         System.out.println("Usuario: maria.lopez");
         System.out.println("Escaneando huella dactilar...");
